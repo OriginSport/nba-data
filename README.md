@@ -104,8 +104,8 @@
 
 | Name      | Type  | Mandatory  | Description |
 | ---           | ---       | ---   | --- |
-| category     |   str      | true  | points,rebounds,assists,steals,blocks 任意一项
-|season_type  | str |true   |regular,playoff 任意一项
+| category     |   str      | true  | [points, rebounds, assists, steals, blocks] Choose a category
+|season_type  | str |true   |[regular, playoff] Choose a season type
 
 | Response      | Type    | Description |
 | ---           | ---         | --- |
