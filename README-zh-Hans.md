@@ -11,7 +11,7 @@
 
 ### 1. 查询球员信息
 * 方法: `GET`
-* URL: 'http://api.ttnbalite.com/api/nba/player/query/?player_id=2544'
+* URL: http://api.ttnbalite.com/api/nba/player/query/?player_id=2544
 
 | 输入参数      | 参数类型  | 必填  | 参数说明 |
 | ---           | ---       | ---   | --- |
