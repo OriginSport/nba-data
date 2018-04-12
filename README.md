@@ -438,8 +438,8 @@
 | ---           | ---         | --- |
 |   date| str        | Game Date
 |  result       |      str       |Result
-|home_team_boxscore   | str| Home Team Box Score
-|away_team_boxscore| str|Away Team Box Score
+|home_team_boxscore   | obj| Home Team Box Score
+|away_team_boxscore| obj|Away Team Box Score
 
 
 * Response：
@@ -477,7 +477,9 @@
 * [1. Query Game Status] 
 * [2. Query Game Info] 
 * [3. Query Game By Date] 
-* [4. Query Multiple Game Info] 
+* [4. Query Multiple Game Info]
+* [5. Query Game Real Time Stats]
+* [6. Query Game Stats]
 
 
 ### 1. Query Game Status
@@ -522,8 +524,8 @@
 | ---           | ---         | --- |
 |  date | str       | Game Date
 |  result     | str      |Game Result
-|home_team_boxscore   | str| Home Team Box Score
-|away_team_boxscore| str| Away Team Box Score
+|home_team_boxscore   | obj| Home Team Box Score
+|away_team_boxscore| obj| Away Team Box Score
 
 
 
@@ -566,8 +568,8 @@
 | ---           | ---         | --- |
 |  date | str       | Game Date
 |  result     | str      |Game Result
-|home_team_boxscore   | str| Home Team Box Score
-|away_team_boxscore| str| Away Team Box Score
+|home_team_boxscore   | obj| Home Team Box Score
+|away_team_boxscore| obj| Away Team Box Score
 
 
 
@@ -631,8 +633,8 @@
 | ---           | ---         | --- |
 |  date | str       | Game Date
 |  result     | str      |Game Result
-|home_team_boxscore   | str| Home Team Box Score
-|away_team_boxscore| str| Away Team Box Score
+|home_team_boxscore   | obj| Home Team Box Score
+|away_team_boxscore| obj| Away Team Box Score
 
 
 
@@ -661,6 +663,142 @@
         "game":"0011600001",
     },
     
+  }
+}
+```
+
+### 5. Query Game Real Time Stats
+* METHOD: `GET`
+* URL: http://api.ttnbalite.com/api/nba/game/query/live/nba/stats/?game_date=2018-03-22
+
+| Name      | Type  | Mandatory  | Description |
+| ---           | ---       | ---   | --- |
+|  game_date    |    str    | true  | Game Date
+
+
+| Response      | Type    | Description |
+| ---           | ---         | --- |
+|  fga | dic{int:int}       | Player Field Goal Made Dict
+|  fgm | dic{int:int}       |Player Field Goal Attempted Dict
+|  reb     | dic{int:int}     |Player Rebounds Dict
+|stl| dic{int:int}| Player Steals Dict
+| tov  |  dic{int:int}     |Player Turnovers Dict
+|  blk | dic{int:int}     |Player Blocks Dict
+|  pts |   dic{int:int}     |Player Points Dict
+|   ast |  dic{int:int}    |Player Turnovers Dict
+|fpts| dic{int:str}    |Player Fantasy Points Dict
+
+
+
+* Response：
+```
+{
+  "ok": true,
+  "data":{ 
+    "pts":{
+      1891:6,
+      1938:7
+    }
+    "blk":{
+      1891:0,
+      1938:0
+    }
+    "fpts":{
+      1891:"620.0",
+      1938:"1120.0"
+    }
+    "reb":{
+      1891:1,
+      1938:7
+    }
+    "ast":{
+      1891:6,
+      1938:1
+    }
+    "stl":{
+      1891:6,
+      1938:7
+    }
+    "tov":{
+      1891:6,
+      1938:7
+    }
+    "fga":{
+      1891:6,
+      1938:7
+    }
+    "fgm":{
+      1891:2,
+      1938:2
+    }
+  }
+}
+```
+
+### 6. Query Game Stats
+* METHOD: `GET`
+* URL: http://api.ttnbalite.com/api/nba/game/query/post/nba/stats/?game_date=2018-03-22
+
+| Name      | Type  | Mandatory  | Description |
+| ---           | ---       | ---   | --- |
+|  game_date    |    str    | true  | Game Date
+
+
+| Response      | Type    | Description |
+| ---           | ---         | --- |
+|  fga | dic{int:int}       | Player Field Goal Made Dict
+|  fgm | dic{int:int}       |Player Field Goal Attempted Dict
+|  reb     | dic{int:int}     |Player Rebounds Dict
+|stl| dic{int:int}| Player Steals Dict
+| tov  |  dic{int:int}     |Player Turnovers Dict
+|  blk | dic{int:int}     |Player Blocks Dict
+|  pts |   dic{int:int}     |Player Points Dict
+|   ast |  dic{int:int}    |Player Turnovers Dict
+|fpts| dic{int:str}    |Player Fantasy Points Dict
+
+
+
+* Response：
+```
+{
+  "ok": true,
+  "data":{ 
+    "pts":{
+      1891:6,
+      1938:7
+    }
+    "blk":{
+      1891:0,
+      1938:0
+    }
+    "fpts":{
+      1891:"620.0",
+      1938:"1120.0"
+    }
+    "reb":{
+      1891:1,
+      1938:7
+    }
+    "ast":{
+      1891:6,
+      1938:1
+    }
+    "stl":{
+      1891:6,
+      1938:7
+    }
+    "tov":{
+      1891:6,
+      1938:7
+    }
+    "fga":{
+      1891:6,
+      1938:7
+    }
+    "fgm":{
+      1891:2,
+      1938:2
+    }
   }
 }
 ```
@@ -759,7 +897,7 @@
 
 ### 1. Query Injury Player By Team
 * METHOD: `GET`
-* URL: http://api.ttnbalite.com/api/injury/query/team/
+* URL: http://api.ttnbalite.com/api/nba/injury/query/team/
 
 | Name      | Type  | Mandatory  | Description |
 | ---           | ---       | ---   | --- |
@@ -793,7 +931,7 @@
 
 ### 2. Query All Injury Players
 * METHOD: `GET`
-* URL: http://api.ttnbalite.com/api/injury/list/all/
+* URL: http://api.ttnbalite.com/api/nba/injury/list/all/
 
 | Name      | Type  | Mandatory  | Description |
 | ---           | ---       | ---   | --- |

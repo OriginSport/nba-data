@@ -57,7 +57,7 @@
 
 ### 2. 查询多个球员信息
 * 方法: `GET`
-* URL: 'http://api.ttnbalite.com/api/nba/player/bulk/query/?player_ids=203115,2544'
+* URL: http://api.ttnbalite.com/api/nba/player/bulk/query/?player_ids=203115,2544
 
 | 输入参数      | 参数类型  | 必填  | 参数说明 |
 | ---           | ---       | ---   | --- |
@@ -106,7 +106,7 @@
 
 ### 3. 查询球员数据
 * 方法: `GET`
-* URL: 'http://api.ttnbalite.com/api/nba/player/statistic/?category=steals&season_type=playoff'
+* URL: http://api.ttnbalite.com/api/nba/player/statistic/?category=steals&season_type=playoff
 
 | 输入参数      | 参数类型  | 必填  | 参数说明 |
 | ---           | ---       | ---   | --- |
@@ -141,7 +141,7 @@
 
 ### 4. 查询球员最近五场比赛数据及范特西评分
 * 方法: `GET`
-* URL: 'http://api.ttnbalite.com/api/nba/player/latest/boxscore/?player_id=2544'
+* URL: http://api.ttnbalite.com/api/nba/player/latest/boxscore/?player_id=2544
 
 | 输入参数      | 参数类型  | 必填  | 参数说明 |
 | ---           | ---       | ---   | --- |
@@ -210,7 +210,7 @@
 
 ### 5. 查询多个球员最近一场比赛数据及范特西评分
 * 方法: `GET`
-* URL: 'http://api.ttnbalite.com/api/nba/players/latest/boxscore/?player_ids=2544,201566'
+* URL: http://api.ttnbalite.com/api/nba/players/latest/boxscore/?player_ids=2544,201566
 
 | 输入参数      | 参数类型  | 必填  | 参数说明 |
 | ---           | ---       | ---   | --- |
@@ -257,7 +257,7 @@
 
 ### 6. 根据日期查询参赛球员
 * 方法: `GET`
-* URL: 'http://api.ttnbalite.com/api/nba/player/daily/list/?game_date=2018-03-22'
+* URL: http://api.ttnbalite.com/api/nba/player/daily/list/?game_date=2018-03-22
 
 | 输入参数      | 参数类型  | 必填  | 参数说明 |
 | ---           | ---       | ---   | --- |
@@ -313,7 +313,7 @@
 
 ### 1. 查询球队信息
 * 方法: `GET`
-* URL: 'http://api.ttnbalite.com/api/nba/team/query/?team_id=1610612739'
+* URL: http://api.ttnbalite.com/api/nba/team/query/?team_id=1610612739
 
 | 输入参数      | 参数类型  | 必填  | 参数说明 |
 | ---           | ---       | ---   | --- |
@@ -342,7 +342,7 @@
 
 ### 2. 查询所有球队信息
 * 方法: `GET`
-* URL: 'http://api.ttnbalite.com/api/nba/team/all/'
+* URL: http://api.ttnbalite.com/api/nba/team/all/
 
 | 输入参数      | 参数类型  | 必填  | 参数说明 |
 | ---           | ---       | ---   | --- |
@@ -383,7 +383,7 @@
 
 ### 3. 查询东西部球队排名
 * 方法: `GET`
-* URL: 'http://api.ttnbalite.com/api/nba/team/standing/'
+* URL: http://api.ttnbalite.com/api/nba/team/standing/
 
 | 输入参数      | 参数类型  | 必填  | 参数说明 |
 | ---           | ---       | ---   | --- |
@@ -446,7 +446,7 @@
 
 ### 4. 查询球队最近五场比赛结果
 * 方法: `GET`
-* URL: 'http://api.ttnbalite.com/api/nba/team/latest/boxscore/?team_id=1610612739'
+* URL: http://api.ttnbalite.com/api/nba/team/latest/boxscore/?team_id=1610612739
 
 | 输入参数      | 参数类型  | 必填  | 参数说明 |
 | ---           | ---       | ---   | --- |
@@ -456,8 +456,8 @@
 | ---           | ---         | --- |
 |   date| str        | 比赛日期
 |  result       |      str       |比分
-|home_team_boxscore   | str| 主队比赛数据详情
-|away_team_boxscore| str|客队比赛数据详情
+|home_team_boxscore   | obj| 主队比赛数据详情
+|away_team_boxscore| obj|客队比赛数据详情
 
 
 * 结果示例：
@@ -497,12 +497,14 @@
 * [2. 查询比赛信息] 
 * [3. 根据日期查询比赛] 
 * [4. 查询多个比赛信息] 
+* [5. 查询比赛实时数据] 
+* [6. 查询比赛数据]
 
 
 
 ### 1. 查询比赛状态
 * 方法: `GET`
-* URL: 'http://api.ttnbalite.com/api/nba/game/state/'
+* URL: http://api.ttnbalite.com/api/nba/game/state/
 
 | 输入参数      | 参数类型  | 必填  | 参数说明 |
 | ---           | ---       | ---   | --- |
@@ -511,7 +513,6 @@
 | 输出参数      | 参数类型    | 参数说明 |
 | ---           | ---         | --- |
 |  game_state | str       | 比赛状态
-|  can_play_live_betting      |      bool       |是否可以开即时竞猜
 |previous_game_dates   | str| 前一个比赛日
 |next_game_dates| str| 下一个比赛日
 |game_date|str|当前比赛日
@@ -523,7 +524,6 @@
   "ok": true,
   "data": {
     "game_state":"PRE",
-    "can_play_live_betting":true,
     "previous_game_dates":["2018-03-20"],
     "next_game_dates": ["2018-03-22"],
     "game_date":"2018-03-21"
@@ -533,7 +533,7 @@
 
 ### 2. 查询比赛信息
 * 方法: `GET`
-* URL: 'http://api.ttnbalite.com/api/nba/game/detail/?game_id=0011600017'
+* URL: http://api.ttnbalite.com/api/nba/game/detail/?game_id=0011600017
 
 | 输入参数      | 参数类型  | 必填  | 参数说明 |
 | ---           | ---       | ---   | --- |
@@ -543,8 +543,8 @@
 | ---           | ---         | --- |
 |  date | str       | 比赛日期
 |  result     | str      |比赛结果
-|home_team_boxscore   | str| 主队数据统计
-|away_team_boxscore| str| 客队数据统计
+|home_team_boxscore   | obj| 主队数据统计
+|away_team_boxscore| obj| 客队数据统计
 
 
 
@@ -577,7 +577,7 @@
 
 ### 3. 根据日期查询比赛
 * 方法: `GET`
-* URL: 'http://api.ttnbalite.com/api/nba/game/list/by/date/?date=2018-03-20'
+* URL: http://api.ttnbalite.com/api/nba/game/list/by/date/?date=2018-03-20
 
 | 输入参数      | 参数类型  | 必填  | 参数说明 |
 | ---           | ---       | ---   | --- |
@@ -587,8 +587,8 @@
 | ---           | ---         | --- |
 |  date | str       | 比赛日期
 |  result     | str      |比赛结果
-|home_team_boxscore   | str| 主队数据统计
-|away_team_boxscore| str| 客队数据统计
+|home_team_boxscore   | obj| 主队数据统计
+|away_team_boxscore| obj| 客队数据统计
 
 
 
@@ -642,7 +642,7 @@
 
 ### 4. 查询多个比赛信息
 * 方法: `GET`
-* URL: 'http://api.ttnbalite.com/api/nba/game/bulk/query/?game_ids=0011600001'
+* URL: http://api.ttnbalite.com/api/nba/game/bulk/query/?game_ids=0011600001
 
 | 输入参数      | 参数类型  | 必填  | 参数说明 |
 | ---           | ---       | ---   | --- |
@@ -652,8 +652,8 @@
 | ---           | ---         | --- |
 |  date | str       | 比赛日期
 |  result     | str      |比赛结果
-|home_team_boxscore   | str| 主队数据统计
-|away_team_boxscore| str| 客队数据统计
+|home_team_boxscore   | obj| 主队数据统计
+|away_team_boxscore| obj| 客队数据统计
 
 
 
@@ -686,13 +686,147 @@
 }
 ```
 
+### 5. 查询比赛实时数据
+* 方法: `GET`
+* URL: http://api.ttnbalite.com/api/nba/game/query/live/nba/stats/?game_date=2018-03-22
+
+| 输入参数      | 参数类型  | 必填  | 参数说明 |
+| ---           | ---       | ---   | --- |
+|  game_date    |    str    | true  | 比赛日期
+
+| 输出参数      | 参数类型    | 参数说明 |
+| ---           | ---         | --- |
+|  fga | dic{int:int}       | 球员出手次数字典
+|  fgm | dic{int:int}       |球员命中次数字典
+|  reb     | dic{int:int}     |球员篮板字典
+|stl| dic{int:int}| 球员抢断字典
+| tov  |  dic{int:int}     |球员失误字典
+|  blk | dic{int:int}     |球员盖帽字典
+|  pts |   dic{int:int}     |球员得分字典
+|   ast |  dic{int:int}    |球员助攻字典
+|fpts| dic{int:str}    |球员范特西评分字典，评分是字符串
+
+
+
+* 结果示例：
+```
+{
+  "ok": true,
+  "data":{ 
+    "pts":{
+      1891:6,
+      1938:7
+    }
+    "blk":{
+      1891:0,
+      1938:0
+    }
+    "fpts":{
+      1891:"620.0",
+      1938:"1120.0"
+    }
+    "reb":{
+      1891:1,
+      1938:7
+    }
+    "ast":{
+      1891:6,
+      1938:1
+    }
+    "stl":{
+      1891:6,
+      1938:7
+    }
+    "tov":{
+      1891:6,
+      1938:7
+    }
+    "fga":{
+      1891:6,
+      1938:7
+    }
+    "fgm":{
+      1891:2,
+      1938:2
+    }
+  }
+}
+```
+
+### 6. 查询比赛数据
+* 方法: `GET`
+* URL: http://api.ttnbalite.com/api/nba/game/query/post/nba/stats/?game_date=2018-03-22
+
+| 输入参数      | 参数类型  | 必填  | 参数说明 |
+| ---           | ---       | ---   | --- |
+|  game_date    |    str    | true  | 比赛日期
+
+| 输出参数      | 参数类型    | 参数说明 |
+| ---           | ---         | --- |
+|  fga | dic{int:int}       | 球员出手次数字典
+|  fgm | dic{int:int}       |球员命中次数字典
+|  reb     | dic{int:int}     |球员篮板字典
+|stl| dic{int:int}| 球员抢断字典
+| tov  |  dic{int:int}     |球员失误字典
+|  blk | dic{int:int}     |球员盖帽字典
+|  pts |   dic{int:int}     |球员得分字典
+|   ast |  dic{int:int}    |球员助攻字典
+|fpts| dic{int:str}    |球员范特西评分字典，评分是字符串
+
+
+
+* 结果示例：
+```
+{
+  "ok": true,
+  "data":{ 
+    "pts":{
+      1891:6,
+      1938:7
+    }
+    "blk":{
+      1891:0,
+      1938:0
+    }
+    "fpts":{
+      1891:"620.0",
+      1938:"1120.0"
+    }
+    "reb":{
+      1891:1,
+      1938:7
+    }
+    "ast":{
+      1891:6,
+      1938:1
+    }
+    "stl":{
+      1891:6,
+      1938:7
+    }
+    "tov":{
+      1891:6,
+      1938:7
+    }
+    "fga":{
+      1891:6,
+      1938:7
+    }
+    "fgm":{
+      1891:2,
+      1938:2
+    }
+  }
+}
+```
+
 ## Playoff API
 
 * [1. 查询季后赛信息] 
 
 ### 1. 查询季后赛信息
 * 方法: `GET`
-* URL: 'http://api.ttnbalite.com/api/nba/playoff/series/'
+* URL: http://api.ttnbalite.com/api/nba/playoff/series/
 
 | 输入参数      | 参数类型  | 必填  | 参数说明 |
 | ---           | ---       | ---   | --- |
@@ -738,7 +872,7 @@
 
 ### 1. 查询新闻
 * 方法: `GET`
-* URL: 'http://api.ttnbalite.com/api/nba/playoff/series/'
+* URL: http://api.ttnbalite.com/api/nba/playoff/series/
 
 | 输入参数      | 参数类型  | 必填  | 参数说明 |
 | ---           | ---       | ---   | --- |
@@ -781,7 +915,7 @@
 
 ### 1. 查询伤病信息
 * 方法: `GET`
-* URL: 'http://api.ttnbalite.com/api/injury/query/team/'
+* URL: http://api.ttnbalite.com/api/nba/injury/query/team/
 
 | 输入参数      | 参数类型  | 必填  | 参数说明 |
 | ---           | ---       | ---   | --- |
@@ -817,7 +951,7 @@
 
 ### 2. 查询所有伤病信息
 * 方法: `GET`
-* URL: 'http://api.ttnbalite.com/api/injury/list/all/'
+* URL: http://api.ttnbalite.com/api/nba/injury/list/all/
 
 | 输入参数      | 参数类型  | 必填  | 参数说明 |
 | ---           | ---       | ---   | --- |
